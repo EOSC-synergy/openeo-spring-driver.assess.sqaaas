@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/Open-EO/openeo-spring-driver:
+      branch: master
+      repo: https://github.com/Open-EO/openeo-spring-driver
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Open-EO/openeo-spring-driver git:
+        commands:
+        - /usr/bin/env sh .sqa/script.snappy-azure-orangutan.sh
+        container: qc.acc_sunny-amethyst-seahorse
+  QC.Doc:
+    repos:
+      github.com/Open-EO/openeo-spring-driver find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.hasty-cinnamon-moorhen.sh
+        container: qc.doc_pasty-wheat-baboon
+      github.com/Open-EO/openeo-spring-driver git:
+        commands:
+        - /usr/bin/env sh .sqa/script.geeky-denim-tiger.sh
+        container: qc.doc_gimpy-crimson-tamarin
+  QC.Lic:
+    repos:
+      github.com/Open-EO/openeo-spring-driver licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.fuzzy-lavender-eagle.sh
+        container: qc.lic_stealthy-maroon-dragonfly
+  QC.Ver:
+    repos:
+      github.com/Open-EO/openeo-spring-driver get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.homey-aquamarine-shrew.sh
+        container: qc.ver_beady-asparagus-quoll
+timeout: 5400
