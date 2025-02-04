@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/Open-EO/openeo-spring-driver:
       branch: master
@@ -15,28 +15,42 @@ sqa_criteria:
     repos:
       github.com/Open-EO/openeo-spring-driver git:
         commands:
-        - /usr/bin/env sh .sqa/script.snappy-azure-orangutan.sh
-        container: qc.acc_sunny-amethyst-seahorse
+        - /usr/bin/env sh .sqa/script.skanky-rust-dragon.sh
+        container: qc.acc_foggy-firebrick-buffalo
   QC.Doc:
     repos:
       github.com/Open-EO/openeo-spring-driver find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.hasty-cinnamon-moorhen.sh
-        container: qc.doc_pasty-wheat-baboon
+        - /usr/bin/env sh .sqa/script.geeky-zucchini-bombay.sh
+        container: qc.doc_crappy-mauve-dogfish
       github.com/Open-EO/openeo-spring-driver git:
         commands:
-        - /usr/bin/env sh .sqa/script.geeky-denim-tiger.sh
-        container: qc.doc_gimpy-crimson-tamarin
+        - /usr/bin/env sh .sqa/script.wimpy-silver-chamois.sh
+        container: qc.doc_wiggy-mustard-macaw
+      github.com/Open-EO/openeo-spring-driver markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.cheeky-beige-falcon.sh
+        container: qc.doc_flabby-scarlet-beetle
   QC.Lic:
     repos:
       github.com/Open-EO/openeo-spring-driver licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.fuzzy-lavender-eagle.sh
-        container: qc.lic_stealthy-maroon-dragonfly
+        - /usr/bin/env sh .sqa/script.clammy-bistre-gibbon.sh
+        container: qc.lic_gummy-celadon-flamingo
+  QC.Sty:
+    repos:
+      github.com/Open-EO/openeo-spring-driver checkstyle:
+        commands:
+        - /usr/bin/env sh .sqa/script.grumpy-copper-husky.sh
+        container: qc.sty_hasty-amaranth-frigatebird
+      github.com/Open-EO/openeo-spring-driver jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.ugly-orchid-coyote.sh
+        container: qc.sty_bumpy-myrtle-javanese
   QC.Ver:
     repos:
       github.com/Open-EO/openeo-spring-driver get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.homey-aquamarine-shrew.sh
-        container: qc.ver_beady-asparagus-quoll
+        - /usr/bin/env sh .sqa/script.lovely-olivine-whale.sh
+        container: qc.ver_snoopy-emerald-donkey
 timeout: 5400

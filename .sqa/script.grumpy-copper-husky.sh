@@ -5,5 +5,5 @@
 
 (
 cd github.com/Open-EO/openeo-spring-driver &&
-    git rev-parse --is-inside-work-tree
+    mvn checkstyle:check
 )

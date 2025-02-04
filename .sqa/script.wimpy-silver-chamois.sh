@@ -5,5 +5,5 @@
 
 (
 cd github.com/Open-EO/openeo-spring-driver &&
-    licensee detect . --confidence 60 --json
+    git rev-parse --is-inside-work-tree 
 )
